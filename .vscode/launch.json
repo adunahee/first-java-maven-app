@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Person",
+            "request": "launch",
+            "mainClass": "firstquickstart.app.Person",
+            "projectName": "quick-start-app"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - GravityCalculator",
+            "request": "launch",
+            "mainClass": "firstquickstart.app.Classes.GravityCalculator",
+            "projectName": "quick-start-app"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "firstquickstart.app.App",
+            "projectName": "quick-start-app"
+        }
+    ]
+}
