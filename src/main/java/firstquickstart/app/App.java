@@ -2,6 +2,8 @@ package firstquickstart.app;
 
 // using java utility to generate random numbers
 import java.util.Random;
+// utility for formatting number from NumberFormat
+import java.text.DecimalFormat;
 
 public class App {
     public static void main(String[] args) {
@@ -9,6 +11,7 @@ public class App {
         System.out.println("Hello World!");
         double pie = 3.14;
         System.out.println("Who wants pie baby?! \n" + Double.toString(pie));
+
         // Birthday Check
         Integer birthday = 5;
         Integer birthmonth = 7;
@@ -23,24 +26,30 @@ public class App {
             greeting = "Its not your birthday yet!";
         }
         System.out.println(greeting);
+
         // Gravity Calculator
         Random rand;
         Integer origin;
         Integer velocity;
         Integer time;
         for (Integer i = 0; i < 3; i += 1) {
+            // randomize skydiver before jump
             rand = new Random();
             origin = rand.nextInt(1000) + 300;
             velocity = rand.nextInt(10) + 2;
             time = rand.nextInt(20) + 5;
             System.out.println("The skydiver begins at " + origin + " with a speed of " + velocity);
+
             // final key work similar to const for vars
             final double accGravity = -9.8;
             System.out.println("Where is the skydiver located after " + time + " seconds?");
+            
             // x(t) = 0.5 × at2 + vi*t + xi
-
             Double skydiverPosition = 0.5 * accGravity * Math.pow(time, 2) + 5 * time + origin;
-            System.out.println(Double.toString(skydiverPosition) + " meters off the ground \n");
+
+            // format position before displaying
+            DecimalFormat df = new DecimalFormat("#.00");
+            System.out.println(df.format(skydiverPosition) + " meters off the ground");
             final String ANSI_RED = "\u001B[31m";
             final String ANSI_RESET = "\u001B[0m";
             final String ANSI_GREEN = "\u001B[32m";
@@ -49,6 +58,7 @@ public class App {
             } else {
                 System.out.println(ANSI_GREEN + "Better deploy the shute!" + ANSI_RESET);
             }
+            System.out.println("\n\n");
         }
     }
 }
