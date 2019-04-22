@@ -7,12 +7,26 @@ import java.text.DecimalFormat;
 
 public class App {
     // main is called automatically
+    // fxnType fxnName (type argName, type argName, type argName){
+    //  statements like logic, maths, and calling other functions
+    // }
+    // fxnType can be void for no return or type for return type
     public static void main(String[] args) {
         // Hello World and Pie Fun
         System.out.println("Hello World!");
         pie();
-        gravityCalculator();
+        // function called with number of skydivers and their initial jump height
+        gravityCalculator(4, 1000);
         operatorFun();
+        System.out.println(boomerang(2));
+        System.out.println("Expect 320");
+        fooCorpPay(40, 8);
+        System.out.println("Expect 200");
+        fooCorpPay(20, 10);
+        System.out.println("Expect 700");
+        fooCorpPay(60, 10);
+        System.out.println("Expect 700");
+        fooCorpPay(70, 10);
     }
 
     public static void pie() {
@@ -37,15 +51,17 @@ public class App {
     }
 
     // Gravity Calculator
-    public static void gravityCalculator() {
+    public static void gravityCalculator(Integer arg1, Integer arg2) {
         Random rand;
         Integer origin;
         Integer velocity;
         Integer time;
-        for (Integer i = 0; i < 3; i += 1) {
+        Integer skydiverCount = arg1;
+        int jumpHeight = arg2;
+        for (Integer i = 0; i < skydiverCount; i += 1) {
             // randomize skydiver before jump
             rand = new Random();
-            origin = rand.nextInt(1000) + 300;
+            origin = rand.nextInt(jumpHeight) + 300;
             velocity = rand.nextInt(10) + 2;
             time = rand.nextInt(20) + 5;
             System.out.println("The skydiver begins at " + origin + " with a speed of " + velocity);
@@ -89,4 +105,23 @@ public class App {
         System.out.println(fractionTwo);
     }
 
+    public static int boomerang(int arg) {
+        return arg;
+    }
+
+    public static void fooCorpPay(double hours, double wage){
+        double regularTime = hours;
+        double overtime = 0;
+        if(hours < 40) {
+            regularTime = hours;
+        }else if(hours > 40){
+            regularTime = 40;
+            overtime = hours - 40;
+            if(overtime > 20){
+                overtime = 20;
+            }
+        }
+        double earnings = regularTime * wage + (overtime * wage * 1.5);
+        System.out.println(earnings);
+    }
 }
