@@ -4,6 +4,7 @@ package firstquickstart.app;
 import java.util.Random;
 // utility for formatting number from NumberFormat
 import java.text.DecimalFormat;
+// importing custom class
 
 public class App {
     // main is called automatically
