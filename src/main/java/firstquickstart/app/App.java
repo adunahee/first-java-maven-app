@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
 public class App {
     // main is called automatically
     // fxnType fxnName (type argName, type argName, type argName){
-    //  statements like logic, maths, and calling other functions
+    // statements like logic, maths, and calling other functions
     // }
     // fxnType can be void for no return or type for return type
     public static void main(String[] args) {
@@ -27,6 +27,9 @@ public class App {
         fooCorpPay(60, 10);
         System.out.println("Expect 700");
         fooCorpPay(70, 10);
+        // arrays must be passed by reference
+        double[] raceResults = { 2.5, 2.75, 3, 4, 3.2, 4.1, 2.9 };
+        raceResultsChecker(raceResults);
     }
 
     public static void pie() {
@@ -109,19 +112,45 @@ public class App {
         return arg;
     }
 
-    public static void fooCorpPay(double hours, double wage){
+    public static void fooCorpPay(double hours, double wage) {
         double regularTime = hours;
         double overtime = 0;
-        if(hours < 40) {
+        if (hours < 40) {
             regularTime = hours;
-        }else if(hours > 40){
+        } else if (hours > 40) {
             regularTime = 40;
             overtime = hours - 40;
-            if(overtime > 20){
+            if (overtime > 20) {
                 overtime = 20;
             }
         }
         double earnings = regularTime * wage + (overtime * wage * 1.5);
         System.out.println(earnings);
     }
+
+    public static void raceResultsChecker(double[] results) {
+        double firstPlace;
+        double secondPlace;
+        // starting best values, issues when tie
+        if (results[0] <= results[1]) {
+            firstPlace = results[0];
+            secondPlace = results[1];
+        } else {
+            firstPlace = results[1];
+            secondPlace = results[0];
+        }
+
+        // begin at 1 b/c result at position zero already assigned to first
+        for (int i = 2; i < results.length; i++) {
+            if (results[i] < firstPlace) {
+                secondPlace = firstPlace;
+                firstPlace = results[i];
+            } else if (results[i] > firstPlace && results[i] < secondPlace) {
+                secondPlace = results[i];
+            }
+        }
+        System.out.println("First place finished with a time of" + firstPlace + "hours");
+        System.out.println("Second place finished with a time of" + secondPlace + "hours");
+    }
+
 }
