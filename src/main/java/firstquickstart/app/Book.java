@@ -34,7 +34,7 @@ public class Book {
         return title;
     }
 
-    public static void main(String[] arguments) {
+    public static void main() {
         // Small test of the Book class
         Book example = new Book("The Da Vinci Code");
         System.out.println("Title (should be The Da Vinci Code): " + example.getTitle());
