@@ -4,6 +4,7 @@ package firstquickstart.app;
 import java.util.Random;
 // utility for formatting number from NumberFormat
 import java.text.DecimalFormat;
+// importing custom class
 
 public class App {
     // main is called automatically
@@ -27,9 +28,14 @@ public class App {
         fooCorpPay(60, 10);
         System.out.println("Expect 700");
         fooCorpPay(70, 10);
-        // arrays must be passed by reference
-        double[] raceResults = { 2.5, 2.75, 3, 4, 3.2, 4.1, 2.9 };
-        raceResultsChecker(raceResults);
+        
+        // using custom class Baby
+        System.out.println("Time to birth a new baby named Gabriel.");
+        Baby myBaby = new Baby("Gabriel", 1, 6, false);
+        // cry is static method so accessed from the class and passed as an arg the baby which is crying
+        Baby.cry(myBaby);
+        myBaby.sayHi();
+        myBaby.eat(2);
     }
 
     public static void pie() {
