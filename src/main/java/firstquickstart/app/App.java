@@ -28,6 +28,14 @@ public class App {
         fooCorpPay(60, 10);
         System.out.println("Expect 700");
         fooCorpPay(70, 10);
+        
+        // using custom class Baby
+        System.out.println("Time to birth a new baby named Gabriel.");
+        Baby myBaby = new Baby("Gabriel", 1, 6, false);
+        // cry is static method so accessed from the class and passed as an arg the baby which is crying
+        Baby.cry(myBaby);
+        myBaby.sayHi();
+        myBaby.eat(2);
     }
 
     public static void pie() {

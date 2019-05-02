@@ -1,9 +1,10 @@
-package firstquickstart.app.classes;
+// any class declared in app directory belongs to this package
+package firstquickstart.app;
 
 // used to run poop task after delay
 import java.util.concurrent.*;
 
-public class Baby{
+public class Baby {
     String name;
     int age;
     double weight;
@@ -17,42 +18,55 @@ public class Baby{
     static int babiesMade = 0;
 
     // constructor, defaults to CLASSNAME (args){}
-    Baby(String myName, int myAge, double myWeight, boolean femaleCheck){
+    Baby(String myName, int myAge, double myWeight, boolean femaleCheck) {
         name = myName;
-        age = myAge; 
+        age = myAge;
         weight = myWeight;
         isFemale = femaleCheck;
         babiesMade = babiesMade++;
     }
 
-  
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
     }
+
     // static method example
-    // however this does not make sense as a static method because it refers to the object
-    // static methods are best used when a methods functionality has value without the rest of the object its a part of
-    // for this reason static methods cannot reference non-static methods because non-static methods require the object
-    static void cry(Baby theBaby){
+    // however this does not make sense as a static method because it refers to the
+    // object
+    // static methods are best used when a methods functionality has value without
+    // the rest of the object its a part of
+    // for this reason static methods cannot reference non-static methods because
+    // non-static methods require the object
+    static void cry(Baby theBaby) {
         System.out.println(theBaby.name + " has started crying.");
     }
-    void sayHi(){
+
+    void weigh() {
+        System.out.println(name + " weighs " + weight + ".");
+    }
+
+    void sayHi() {
         System.out.println("Hi my name is " + name + ".");
     }
-    void eat(double foodWeight){
+
+    void eat(double foodWeight) {
+        weigh();
         // add to baby weight a portion of food consumed
         weight = weight + (.1 * foodWeight);
+        weigh();
         poop();
     }
 
-    void poop(){
+    void poop() {
         // creates instance of scheduler task from imported utility concurrent
         ScheduledExecutorService metabolizeFood = Executors.newSingleThreadScheduledExecutor();
         // creates runnable of task to be run after delay
         Runnable excreteFoodWaste = new Runnable() {
-            public void run(){
+            public void run() {
                 poops = poops + 1;
                 System.out.println(name + " pooped! That's the " + poops + "time.");
+                weight -= .1;
+                weigh();
             }
         };
         // delay time, unit of time specified in scheduler args
