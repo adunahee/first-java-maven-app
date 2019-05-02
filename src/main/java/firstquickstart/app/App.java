@@ -36,6 +36,10 @@ public class App {
         Baby.cry(myBaby);
         myBaby.sayHi();
         myBaby.eat(2);
+        // runs book main which contains "tests" for book class
+        Book.main();
+        // runs library main which contains scenario of book class being used by library with some expected actions
+        Library.main();
     }
 
     public static void pie() {
