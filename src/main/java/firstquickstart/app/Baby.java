@@ -4,12 +4,13 @@ package firstquickstart.app;
 // used to run poop task after delay
 import java.util.concurrent.*;
 
+// introduced "access control" to baby class. helps separate implementation from interfacing
 public class Baby {
-    String name;
-    int age;
-    double weight;
-    int poops = 0;
-    boolean isFemale;
+    private String name;
+    private int age;
+    private double weight;
+    private int poops = 0;
+    private boolean isFemale;
 
     // static applies to fields and methods and means they are non unique for each
     // instance,
@@ -37,27 +38,29 @@ public class Baby {
     // the rest of the object its a part of
     // for this reason static methods cannot reference non-static methods because
     // non-static methods require the object
-    static void cry(Baby theBaby) {
+    public static void cry(Baby theBaby) {
         System.out.println(theBaby.name + " has started crying.");
     }
 
-    void weigh() {
+    // a getter of sorts, but does not return actual value just displays it
+    public void weigh() {
         System.out.println(name + " weighs " + weight + ".");
     }
-
-    void sayHi() {
+    // a getter of sorts, but does not return actual value just displays it
+    public void sayHi() {
         System.out.println("Hi my name is " + name + ".");
     }
-
-    void eat(double foodWeight) {
+    // a setter that calls a getter before and after setting
+    public void eat(double foodWeight) {
         weigh();
         // add to baby weight a portion of food consumed
         weight = weight + (.1 * foodWeight);
         weigh();
         poop();
     }
-
-    void poop() {
+    // two setters in one for poop count and baby weight, made private so can 
+    // only be called after eating, wouldnt want to poop a baby massless
+    private void poop() {
         // creates instance of scheduler task from imported utility concurrent
         ScheduledExecutorService metabolizeFood = Executors.newSingleThreadScheduledExecutor();
         // creates runnable of task to be run after delay
@@ -74,7 +77,20 @@ public class Baby {
         metabolizeFood.schedule(excreteFoodWaste, digestionTime, TimeUnit.SECONDS);
         metabolizeFood.shutdown();
     }
+
+    public void birthday(int newAge){
+        age = newAge;
+        System.out.println("Happy Birthday! " + name + " just turned " + age + ".");
+    }
+    public static void ageCheck(Baby theBaby){
+        System.out.println(theBaby.name + " is " + theBaby.age + " years old.");
+    }
+    public static void main(){
+        Baby karen = new Baby("Karen", 1, 12.2, true);
+        karen.eat(1);
+        karen.birthday(2);
+        Baby.ageCheck(karen);
+    }
 }
 
-// Baby karen = new Baby("Karen", 1, 12.2, true);
-// karen.eat(1);
+

@@ -35,7 +35,8 @@ public class App {
         // cry is static method so accessed from the class and passed as an arg the baby which is crying
         Baby.cry(myBaby);
         myBaby.sayHi();
-        myBaby.eat(2);
+        myBaby.birthday(2);
+        Baby.main();
         // runs book main which contains "tests" for book class
         Book.main();
         // runs library main which contains scenario of book class being used by library with some expected actions
