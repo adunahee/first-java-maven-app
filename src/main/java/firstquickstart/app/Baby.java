@@ -77,9 +77,19 @@ public class Baby {
         metabolizeFood.schedule(excreteFoodWaste, digestionTime, TimeUnit.SECONDS);
         metabolizeFood.shutdown();
     }
+
+    public void birthday(int newAge){
+        age = newAge;
+        System.out.println("Happy Birthday! " + name + " just turned " + age + ".");
+    }
+    public static void ageCheck(Baby theBaby){
+        System.out.println(theBaby.name + " is " + theBaby.age + " years old.");
+    }
     public static void main(){
         Baby karen = new Baby("Karen", 1, 12.2, true);
         karen.eat(1);
+        karen.birthday(2);
+        Baby.ageCheck(karen);
     }
 }
 

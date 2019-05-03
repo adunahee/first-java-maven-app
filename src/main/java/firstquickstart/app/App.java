@@ -35,6 +35,7 @@ public class App {
         // cry is static method so accessed from the class and passed as an arg the baby which is crying
         Baby.cry(myBaby);
         myBaby.sayHi();
+        myBaby.birthday(2);
         Baby.main();
         // runs book main which contains "tests" for book class
         Book.main();
