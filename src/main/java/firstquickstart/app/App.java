@@ -41,6 +41,8 @@ public class App {
         Book.main();
         // runs library main which contains scenario of book class being used by library with some expected actions
         Library.main();
+
+        EmailList.main();
     }
 
     public static void pie() {
