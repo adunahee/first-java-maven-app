@@ -27,10 +27,6 @@ public class Baby {
         babiesMade = babiesMade++;
     }
 
-    public static void main(String[] args) {
-
-    }
-
     // static method example
     // however this does not make sense as a static method because it refers to the
     // object
