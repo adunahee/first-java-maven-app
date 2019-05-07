@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - GraphApp",
+            "request": "launch",
+            "mainClass": "firstquickstart.graph.GraphApp",
+            "projectName": "quick-start-app"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "firstquickstart.graph.App",
+            "projectName": "quick-start-app"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Person",
             "request": "launch",
             "mainClass": "firstquickstart.app.Person",
