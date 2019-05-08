@@ -9,8 +9,8 @@ public class BouncingBox {
     int x;
     int y;
     Color color;
-    int xDirection = 0;
-    int yDirection = 0;
+    int xDirection = 1;
+    int yDirection = 1;
     final int SIZE = 20;
 
     /**
