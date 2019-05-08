@@ -44,7 +44,13 @@ public class Baby {
     }
     // a getter of sorts, but does not return actual value just displays it
     public void sayHi() {
-        System.out.println("Hi my name is " + name + ".");
+        String sexText;
+        if(isFemale){
+            sexText = "goyle";
+        } else {
+            sexText = "boy";
+        }
+        System.out.println("Hi my name is " + name + ", and I am a " + sexText);
     }
     // a setter that calls a getter before and after setting
     public void eat(double foodWeight) {
