@@ -11,6 +11,7 @@ public class SwirlingCircle {
     Color color;
     int yDirection = 0;
     int xDirection = 0;
+    int movementCounter = 0;
     final int SIZE = 30;
 
     // constructor for new circle centered at x,y
@@ -38,23 +39,28 @@ public class SwirlingCircle {
     }
 
     private void setMotionDirection(int priorXdirection, int priorYdirection) {
-        if ((priorXdirection == 0 && priorYdirection == 0) || (priorXdirection == 1 && priorYdirection == 1)) {
-            xDirection = +1;
-            yDirection = -1;
-            return;
-        } else if (priorXdirection == 1 && priorYdirection == -1) {
-            xDirection = -1;
-            return;
-        } else if (priorXdirection == -1 && priorYdirection == -1) {
-            yDirection = +1;
-            return;
-        } else if (priorXdirection == -1 && priorYdirection == 1) {
-            xDirection = +1;
+        // change direction after moving 10 in a given direction
+        movementCounter ++;
+        if(movementCounter >= 20){
+            movementCounter = 0;
+            if ((priorXdirection == 0 && priorYdirection == 0) || (priorXdirection == 1 && priorYdirection == 1)) {
+                xDirection = +1;
+                yDirection = -1;
+                return;
+            } else if (priorXdirection == 1 && priorYdirection == -1) {
+                xDirection = -1;
+                return;
+            } else if (priorXdirection == -1 && priorYdirection == -1) {
+                yDirection = +1;
+                return;
+            } else if (priorXdirection == -1 && priorYdirection == 1) {
+                xDirection = +1;
+            }
         }
     }
 
-    public void setMovementVector(int xIncrement, int yIncrement) {
-        xDirection = xIncrement;
-        yDirection = yIncrement;
-    }
+    // public void setMovementVector(int xIncrement, int yIncrement) {
+    //     xDirection = xIncrement;
+    //     yDirection = yIncrement;
+    // }
 }
