@@ -7,6 +7,7 @@ public class DrawGraphics {
     BouncingBox box;
     SwirlingCircle circle;
     TurningTriangle triangle;
+    CustomImage poopEmoji;
 
     /** Initializes this class for drawing. */
     public DrawGraphics() {
@@ -15,6 +16,7 @@ public class DrawGraphics {
         int[] xValues = {40,30,50};
         int[] yValues = {40,50,50};
         triangle = new TurningTriangle(xValues, yValues, Color.ORANGE);
+        poopEmoji = new CustomImage(200,200,"PoopEmoji.png");
     }
 
     /** Draw the contents of the window on surface. Called 20 times per second. */
@@ -23,5 +25,6 @@ public class DrawGraphics {
         box.draw(surface);
         circle.draw(surface);
         triangle.draw(surface);
+        poopEmoji.draw(surface);
     }
 }
